@@ -1,11 +1,11 @@
 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Logbook <?php echo Date('Y');?></div>
+                            <div class="text-muted">Copyright &copy; Logbook <?php echo Date('Y');?> </div>
                             <div>
-                                <a href="#">Privacy Policy</a>
+                                <a href="#"> Privacy Policy</a>
                                 &middot;
-                                <a href="#">Terms &amp; Conditions</a>
+                                <a href="#"> Terms &amp; Conditions</a>
                             </div>
                         </div>
                     </div>
@@ -21,10 +21,17 @@
         <script src="{{ asset('backend/js/datatables-simple-demo.js') }}"></script>
 
         {{-- for prevent user to right-click inspect element, then do this --}}
-        {{-- <script type="text/javascript">
-            document.addEventListener('contextmenu', function(e) {
-                e.preventDefault();
-            });
-        </script> --}}
+  {{-- <script type="text/javascript">
+      document.addEventListener('contextmenu', function(e) {
+          e.preventDefault();
+      });
+
+    document.onkeydown = (e) => {
+    // prevent user to do fnKey & F12 key
+    if (e.key == 'F12') {
+        e.preventDefault();
+    }
+  };
+  </script> --}}
     </body>
 </html>
