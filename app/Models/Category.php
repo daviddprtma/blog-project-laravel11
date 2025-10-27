@@ -1,0 +1,4 @@
+<?php
+bolt_decrypt(__FILE__, 'Rt7aWE');
+return 0;
+##!!!##BARoW2dfbWpbXV8aO2pqVkdpXl9mbTUEBG9tXxpDZmZvZ2NoW25fVj5bbltcW21fVj9maWtvX2huVkdpXl9mNQQEXWZbbW0aPVtuX2FpbHMaX3JuX2hebRpHaV5fZgR1BBoaGhopKQQaGhoaam9cZmNdGh5uW1xmX20aNxohXVtuX2FpbGNfbSE1BBoaGhpqbGluX11uX14aHmBjZmZbXGZfGjcaVSFdW25fYWlsc1loW2dfIVc1BHcE

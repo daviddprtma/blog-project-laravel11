@@ -103,6 +103,20 @@
   <!-- Main JS File -->
   <script src="{{asset('frontend/assets/js/main.js')}}"></script>
 
+  {{-- for prevent user to right-click inspect element, then do this --}}
+  {{-- <script type="text/javascript">
+      document.addEventListener('contextmenu', function(e) {
+          e.preventDefault();
+      });
+
+    document.onkeydown = (e) => {
+    // prevent user to do fnKey & F12 key
+    if (e.key == 'F12') {
+        e.preventDefault();
+    }
+  };
+  </script> --}}
+
 </body>
 
 </html>
