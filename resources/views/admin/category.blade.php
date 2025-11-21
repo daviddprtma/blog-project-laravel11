@@ -16,7 +16,6 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">No.</th>
                                     <th scope="col">Category Name</th>
                                     <th scope="col">Edit</th>
                                     <th scope="col">Delete</th>
@@ -26,7 +25,7 @@
                             <tbody>
                                 @foreach($categories as $category)
                                 <tr>
-                                    <td>{{$category->id}}</td>
+                                    {{-- <td>{{$category->id}}</td> --}}
                                     <td>{{$category->category_name}}</td>
                                     <td><a class="btn btn-info" href="{{url('/edit_category/'.$category->id)}}">Edit</a></td>
                                     <td><a class="btn btn-danger" href="{{url('/delete_category/'.$category->id)}}" onclick="return confirm('Are you sure to delete?')">Delete</a></td>
