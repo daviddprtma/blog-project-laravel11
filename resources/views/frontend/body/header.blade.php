@@ -26,7 +26,6 @@
 
   <!-- Main CSS File -->
   <link href="{{asset('frontend/assets/css/main.css')}}" rel="stylesheet">
-
   <!-- =======================================================
   * Template Name: HeroBiz
   * Template URL: https://bootstrapmade.com/herobiz-bootstrap-business-template/

@@ -12,7 +12,7 @@
                     </div>
 
                     <div class="card-body">
-                        <form action="{{route('create_post')}}" method="POST">
+                        <form action="{{route('create_post')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
                                 <label for="category_id" class="form-label">Category</label>
@@ -29,11 +29,12 @@
                             </div>
                             <div class="mb-3">
                                 <label for="description" class="form-label">Description</label>
-                                <input type="text" class="form-control" id="description" name="description" placeholder="Enter description" required>
+                                <textarea id="mytextarea" class="form-control" name="description"></textarea>
                             </div>
                             <div class="mb-3">
                                 <label for="tags" class="form-label">Tags</label>
-                                <input type="text" class="form-control" id="tags" name="tags" placeholder="Enter tags" required>
+                                <br>
+                                <input type="text" class="form-control" data-role="tagsinput" name="tags" placeholder="Enter tags" required>
                             </div>
                             <div class="mb-3">
                                 <label for="image" class="form-label">Image</label>

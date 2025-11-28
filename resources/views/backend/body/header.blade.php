@@ -9,7 +9,26 @@
         <title>Logbook Admin</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
         <link href="{{asset('backend/css/styles.css')}}" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.6.0/bootstrap-tagsinput.min.css" integrity="sha512-X6069m1NoT+wlVHgkxeWv/W7YzlrJeUhobSzk4J09CWxlplhUzJbiJVvS9mX1GGVYf5LA3N9yQW5Tgnu9P4C7Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+
+        <script src="https://cdn.tiny.cloud/1/lp7lztdggxmkfflaif8kiw64dog4gmfkw66f0lt4z881qohx/tinymce/8/tinymce.min.js" referrerpolicy="origin" crossorigin="anonymous"></script>
+        <script>
+        tinymce.init({
+            selector: '#mytextarea'
+        });
+        </script>
+
+        <style>
+            .bootstrap-tagsinput .tag {
+                margin-right: 2px;
+                color: white !important;
+                background-color: #0d6efd;
+                padding: 0.2rem;
+                border-radius: 0.2rem;
+            }
+        </style>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
