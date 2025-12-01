@@ -1,5 +1,8 @@
 @extends('frontend.master')
 @section('main')
+@php
+  $post = App\Models\Post::all();
+@endphp
 <main class="main">
 
     <!-- Page Title -->
@@ -8,7 +11,7 @@
         <h1 class="mb-2 mb-lg-0">Blog</h1>
         <nav class="breadcrumbs">
           <ol>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="{{ route('frontend.index') }}">Home</a></li>
             <li class="current">Blog</li>
           </ol>
         </nav>
@@ -20,163 +23,33 @@
 
       <div class="container">
         <div class="row gy-4">
-
+          @foreach ($post as $p)
           <div class="col-lg-4">
             <article>
 
               <div class="post-img">
-                <img src="{{asset('frontend/assets/img/blog/blog-1.jpg')}}" alt="" class="img-fluid">
+                <img src="{{asset('post_images/'.$p->image)}}" class="img-fluid">
               </div>
 
-              <p class="post-category">Politics</p>
+              <p class="post-category">{{$p->category->category_name}}</p>
 
               <h2 class="title">
-                <a href="blog-details.html">Dolorum optio tempore voluptas dignissimos</a>
+                <a href="">{{$p->title}}</a>
               </h2>
 
               <div class="d-flex align-items-center">
-                <img src="{{asset('frontend/assets/img/blog/blog-author.jpg')}}" alt="" class="img-fluid post-author-img flex-shrink-0">
+                {{-- <img src="{{asset('frontend/assets/img/blog/blog-author.jpg')}}" alt="" class="img-fluid post-author-img flex-shrink-0"> --}}
                 <div class="post-meta">
-                  <p class="post-author">Maria Doe</p>
+                  <p class="post-author">{{$p->user->name}}</p>
                   <p class="post-date">
-                    <time datetime="2022-01-01">Jan 1, 2022</time>
+                    <time datetime="{{Carbon\Carbon::parse($p->created_at)->diffForHumans()}}">{{Carbon\Carbon::parse($p->created_at)->diffForHumans()}}</time>
                   </p>
                 </div>
               </div>
 
             </article>
           </div><!-- End post list item -->
-
-          <div class="col-lg-4">
-            <article>
-
-              <div class="post-img">
-                <img src="{{asset('frontend/assets/img/blog/blog-2.jpg')}}" alt="" class="img-fluid">
-              </div>
-
-              <p class="post-category">Sports</p>
-
-              <h2 class="title">
-                <a href="blog-details.html">Nisi magni odit consequatur autem nulla dolorem</a>
-              </h2>
-
-              <div class="d-flex align-items-center">
-                <img src="{{asset('frontend/assets/img/blog/blog-author-2.jpg')}}" alt="" class="img-fluid post-author-img flex-shrink-0">
-                <div class="post-meta">
-                  <p class="post-author">Allisa Mayer</p>
-                  <p class="post-date">
-                    <time datetime="2022-01-01">Jun 5, 2022</time>
-                  </p>
-                </div>
-              </div>
-
-            </article>
-          </div><!-- End post list item -->
-
-          <div class="col-lg-4">
-            <article>
-
-              <div class="post-img">
-                <img src="{{asset('frontend/assets/img/blog/blog-3.jpg')}}" alt="" class="img-fluid">
-              </div>
-
-              <p class="post-category">Entertainment</p>
-
-              <h2 class="title">
-                <a href="blog-details.html">Possimus soluta ut id suscipit ea ut in quo quia et soluta</a>
-              </h2>
-
-              <div class="d-flex align-items-center">
-                <img src="{{asset('frontend/assets/img/blog/blog-author-3.jpg')}}" alt="" class="img-fluid post-author-img flex-shrink-0">
-                <div class="post-meta">
-                  <p class="post-author">Mark Dower</p>
-                  <p class="post-date">
-                    <time datetime="2022-01-01">Jun 22, 2022</time>
-                  </p>
-                </div>
-              </div>
-
-            </article>
-          </div><!-- End post list item -->
-
-          <div class="col-lg-4">
-            <article>
-
-              <div class="post-img">
-                <img src="{{asset('frontend/assets/img/blog/blog-4.jpg')}}" alt="" class="img-fluid">
-              </div>
-
-              <p class="post-category">Sports</p>
-
-              <h2 class="title">
-                <a href="blog-details.html">Non rem rerum nam cum quo minus olor distincti</a>
-              </h2>
-
-              <div class="d-flex align-items-center">
-                <img src="{{asset('frontend/assets/img/blog/blog-author-4.jpg')}}" alt="" class="img-fluid post-author-img flex-shrink-0">
-                <div class="post-meta">
-                  <p class="post-author">Lisa Neymar</p>
-                  <p class="post-date">
-                    <time datetime="2022-01-01">Jun 30, 2022</time>
-                  </p>
-                </div>
-              </div>
-
-            </article>
-          </div><!-- End post list item -->
-
-          <div class="col-lg-4">
-            <article>
-
-              <div class="post-img">
-                <img src="{{asset('frontend/assets/img/blog/blog-5.jpg')}}" alt="" class="img-fluid">
-              </div>
-
-              <p class="post-category">Politics</p>
-
-              <h2 class="title">
-                <a href="blog-details.html">Accusamus quaerat aliquam qui debitis facilis consequatur</a>
-              </h2>
-
-              <div class="d-flex align-items-center">
-                <img src="{{asset('frontend/assets/img/blog/blog-author-5.jpg')}}" alt="" class="img-fluid post-author-img flex-shrink-0">
-                <div class="post-meta">
-                  <p class="post-author">Denis Peterson</p>
-                  <p class="post-date">
-                    <time datetime="2022-01-01">Jan 30, 2022</time>
-                  </p>
-                </div>
-              </div>
-
-            </article>
-          </div><!-- End post list item -->
-
-          <div class="col-lg-4">
-            <article>
-
-              <div class="post-img">
-                <img src="{{asset('frontend/assets/img/blog/blog-6.jpg')}}" alt="" class="img-fluid">
-              </div>
-
-              <p class="post-category">Entertainment</p>
-
-              <h2 class="title">
-                <a href="blog-details.html">Distinctio provident quibusdam numquam aperiam aut</a>
-              </h2>
-
-              <div class="d-flex align-items-center">
-                <img src="{{asset('frontend/assets/img/blog/blog-author-6.jpg')}}" alt="" class="img-fluid post-author-img flex-shrink-0">
-                <div class="post-meta">
-                  <p class="post-author">Mika Lendon</p>
-                  <p class="post-date">
-                    <time datetime="2022-01-01">Feb 14, 2022</time>
-                  </p>
-                </div>
-              </div>
-
-            </article>
-          </div><!-- End post list item -->
-
+          @endforeach
         </div>
       </div>
 
