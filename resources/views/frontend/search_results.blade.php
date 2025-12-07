@@ -1,18 +1,16 @@
 @extends('frontend.master')
 @section('main')
-@php
-  $post = App\Models\Post::all();
-@endphp
+
 <main class="main">
 
     <!-- Page Title -->
     <div class="page-title">
       <div class="container d-lg-flex justify-content-between align-items-center">
-        <h1 class="mb-2 mb-lg-0">Blog</h1>
+        <h1 class="mb-2 mb-lg-0">Search Blog</h1>
         <nav class="breadcrumbs">
           <ol>
             <li><a href="{{ route('frontend.index') }}">Home</a></li>
-            <li class="current">Blog</li>
+            <li class="current">Search Blog</li>
           </ol>
         </nav>
       </div>
@@ -23,7 +21,7 @@
 
       <div class="container">
         <div class="row gy-4">
-          @foreach ($post as $p)
+          @foreach ($posts as $p)
           <div class="col-lg-4">
             <article>
 

@@ -1,0 +1,219 @@
+@extends('frontend.master')
+@section('main')
+<main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title">
+      <div class="container d-lg-flex justify-content-between align-items-center">
+        <h1 class="mb-2 mb-lg-0">Blog Details</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li class="current">Blog Details</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-8">
+
+          <!-- Blog Details Section -->
+          <section id="blog-details" class="blog-details section">
+            <div class="container">
+
+              <article class="article">
+
+                <div class="post-img">
+                  <img src="{{ asset('post_images/' . $post->image) }}" class="img-fluid">
+                </div>
+
+                <h2 class="title">{{$post->title}}</h2>
+
+                <div class="meta-top">
+                  <ul>
+                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="">{{$post->user->name}}</a></li>
+                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href=""><time datetime="{{Carbon\Carbon::parse($post->created_at)->diffForHumans()}}">{{Carbon\Carbon::parse($post->created_at)->diffForHumans()}}</time></a></li>
+                    {{-- <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details.html">12 Comments</a></li> --}}
+                  </ul>
+                </div><!-- End meta top -->
+
+                <div class="content">
+                  <p>
+                    {{-- remove &nbsp; --}}
+                    {!! html_entity_decode($post->description) !!}
+                  </p>
+
+                </div><!-- End post content -->
+
+                <div class="meta-bottom">
+                  <i class="bi bi-folder"></i>
+                  <ul class="cats">
+                    <li><a href="">{{$post->category->category_name}}</a></li>
+                  </ul>
+                </div><!-- End meta bottom -->
+
+              </article>
+
+            </div>
+          </section><!-- /Blog Details Section -->
+
+          <!-- Blog Author Section -->
+          <section id="blog-author" class="blog-author section">
+
+            <div class="container">
+              <div class="author-container d-flex align-items-center">
+                {{-- <img src="assets/img/blog/blog-author.jpg" class="rounded-circle flex-shrink-0" alt=""> --}}
+                <div>
+                  <h4>Posted from: {{ $post->user->name }}</h4>
+                  {{-- <div class="social-links">
+                    <a href="https://x.com/#"><i class="bi bi-twitter-x"></i></a>
+                    <a href="https://facebook.com/#"><i class="bi bi-facebook"></i></a>
+                    <a href="https://instagram.com/#"><i class="biu bi-instagram"></i></a>
+                  </div> --}}
+                  {{-- <p>
+                    Itaque quidem optio quia voluptatibus dolorem dolor. Modi eum sed possimus accusantium. Quas repellat voluptatem officia numquam sint aspernatur voluptas. Esse et accusantium ut unde voluptas.
+                  </p> --}}
+                </div>
+              </div>
+            </div>
+
+          </section><!-- /Blog Author Section -->
+
+          <!-- Blog Comments Section -->
+          <section id="blog-comments" class="blog-comments section">
+
+            <div class="container">
+
+              <h4 class="comments-count">8 Comments</h4>
+
+              <div id="comment-1" class="comment">
+                <div class="d-flex">
+                  {{-- <div class="comment-img"><img src="assets/img/blog/comments-1.jpg" alt=""></div> --}}
+                  <div>
+                    <h5><a href="">Georgia Reader</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
+                    <time datetime="2020-01-01">01 Jan,2022</time>
+                    <p>
+                      Et rerum totam nisi. Molestiae vel quam dolorum vel voluptatem et et. Est ad aut sapiente quis molestiae est qui cum soluta.
+                      Vero aut rerum vel. Rerum quos laboriosam placeat ex qui. Sint qui facilis et.
+                    </p>
+                  </div>
+                </div>
+              </div><!-- End comment #1 -->
+            </div>
+
+          </section><!-- /Blog Comments Section -->
+
+          <!-- Comment Form Section -->
+          <section id="comment-form" class="comment-form section">
+            <div class="container">
+
+              <form action="">
+
+                <h4>Post Comment</h4>
+                <p>Your email address will not be published. Required fields are marked * </p>
+                <div class="row">
+                  <div class="col-md-6 form-group">
+                    <input name="name" type="text" class="form-control" placeholder="Your Name*">
+                  </div>
+                  <div class="col-md-6 form-group">
+                    <input name="email" type="text" class="form-control" placeholder="Your Email*">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col form-group">
+                    <input name="website" type="text" class="form-control" placeholder="Your Website">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col form-group">
+                    <textarea name="comment" class="form-control" placeholder="Your Comment*"></textarea>
+                  </div>
+                </div>
+
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary">Post Comment</button>
+                </div>
+
+              </form>
+
+            </div>
+          </section><!-- /Comment Form Section -->
+
+        </div>
+
+        <div class="col-lg-4 sidebar">
+
+          <div class="widgets-container">
+
+            <!-- Search Widget -->
+            <div class="search-widget widget-item">
+
+              <h3 class="widget-title">Search</h3>
+              <form action="{{ route('search') }}" method="POST">
+                @csrf
+                <input type="text" name="search" placeholder="Search...">
+                <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+              </form>
+
+            </div><!--/Search Widget -->
+
+            <!-- Categories Widget -->
+            <div class="categories-widget widget-item">
+
+              <h3 class="widget-title">Categories</h3>
+              <ul class="mt-3">
+                @foreach ($categories as $cat)
+                    <li><a href="{{ route('category_post',$cat->id) }}">{{$cat->category_name}} 
+                        {{-- count the post --}}
+                        ({{ $post->where('category_id', $cat->id)->count() }})
+                        </a>
+                    </li>    
+                @endforeach
+                
+              </ul>
+
+            </div><!--/Categories Widget -->
+
+            <!-- Recent Posts Widget -->
+            <div class="recent-posts-widget widget-item">
+
+              <h3 class="widget-title">Recent Posts</h3>
+
+              @foreach ($posts as $p)
+              {{-- take from the new post only --}}
+              @if ($p->id != $post->id && $p->created_at >= now()->subDays(30))
+                <div class="post-item">
+                <img src="{{ asset('post_images/'.$p->image) }}" alt="" class="flex-shrink-0">
+                <div>
+                  <h4><a href="{{ route('blog_detail', $p->id) }}">{{ $p->title }}</a></h4>
+                  <time datetime="{{Carbon\Carbon::parse($p->created_at)->diffForHumans()}}">{{ \Carbon\Carbon::parse($p->created_at)->diffForHumans() }}</time>
+                </div>
+              </div><!-- End recent post item-->  
+              @endif
+              @endforeach
+
+            </div><!--/Recent Posts Widget -->
+
+            <!-- Tags Widget -->
+            <div class="tags-widget widget-item">
+
+              <h3 class="widget-title">Tags</h3>
+              <ul>
+                <li><a href="#">App</a></li>
+              </ul>
+
+            </div><!--/Tags Widget -->
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+@endsection
+
