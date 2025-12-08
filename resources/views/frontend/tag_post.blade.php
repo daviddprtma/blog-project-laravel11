@@ -1,14 +1,17 @@
 @extends('frontend.master')
 @section('main')
-@php
-  $post = App\Models\Post::all();
-@endphp
 <main class="main">
 
     <!-- Page Title -->
     <div class="page-title">
       <div class="container d-lg-flex justify-content-between align-items-center">
-        <h1 class="mb-2 mb-lg-0">Blog</h1>
+        <h1 class="mb-2 mb-lg-0">Tag Post</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="{{ route('frontend.index') }}">Home</a></li>
+            <li class="current">Tag Post</li>
+          </ol>
+        </nav>
       </div>
     </div><!-- End Page Title -->
 
@@ -17,6 +20,11 @@
 
       <div class="container">
         <div class="row gy-4">
+            {{-- if there's no category or have 0 then show the 404 page --}}
+            @if($post->isEmpty())
+                @include('errors.404')
+            @endif
+          {{-- loop through the posts --}}
           @foreach ($post as $p)
           <div class="col-lg-4">
             <article>

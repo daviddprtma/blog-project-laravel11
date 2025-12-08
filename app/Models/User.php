@@ -1,4 +1,48 @@
 <?php
-bolt_decrypt(__FILE__, 'Abie5mIdfjSA');
-return 0;
-##!!!##Li6ShZGJl5SFh4lEZZSUgHGTiImQl18uLlNTRJmXiURtkJCZkY2ShZiJgGeTkpiWhYeYl4BlmZiMgHGZl5h6iZaNip1pkYWNkF8umZeJRG2QkJmRjZKFmImAaIWYhYaFl4mAaZCTlZmJkpiAaoWHmJOWjYmXgGyFl2qFh5iTlp1fLpmXiURtkJCZkY2ShZiJgGqTmZKIhZiNk5KAZZmYjIB5l4mWRIWXRGWZmIyJkpiNh4WYhYaQiV8umZeJRG2QkJmRjZKFmImAcpOYjYqNh4WYjZOSl4Byk5iNio2FhpCJXy4uh5CFl5dEeZeJlkSJnJiJkoiXRGWZmIyJkpiNh4WYhYaQiS6fLkRERERTTk5EZJmXiURshZdqhYeYk5adYIBohZiFhoWXiYBqhYeYk5aNiZeAeZeJlmqFh5iTlp1iRE5TLkRERESZl4lEbIWXaoWHmJOWnVBEcpOYjYqNhYaQiV8uLkRERERTTk4uRERERERORHiMiUSFmJiWjYaZmImXRJiMhZhEhZaJRJGFl5dEhZeXjYuShYaQiVIuREREREROLkRERERETkRkmoWWRJCNl5hgl5iWjZKLYi5ERERERE5TLkRERESUlpOYiYeYiYhESIqNkJCFhpCJRGFEfy5EREREREREREuShZGJS1AuRERERERERERLiZGFjZBLUC5EREREREREREuUhZeXm5OWiEtQLkRERESBXy4uRERERFNOTi5ERERERE5EeIyJRIWYmJaNhpmYiZdEmIyFmESXjJOZkIhEholEjI2IiImSRIqTlkSXiZaNhZCNnoWYjZOSUi5ERERERE4uRERERERORGSahZZEkI2XmGCXmJaNkotiLkRERERETlMuRERERJSWk5iJh5iJiERIjI2IiImSRGFEfy5EREREREREREuUhZeXm5OWiEtQLkRERERERERES5aJkYmRhomWg5iTj4mSS1AuRERERIFfLi5EREREU05OLkRERERETkRriZhEmIyJRIWYmJaNhpmYiZdEmIyFmESXjJOZkIhEholEh4WXmFIuREREREROLkRERERETkRklomYmZaSRIWWloWdYJeYlo2Si1BEl5iWjZKLYi5ERERERE5TLkRERESUlpOYiYeYiYhEipmSh5iNk5JEh4WXmJdMTV5EhZaWhZ0uRERERJ8uRERERERERESWiZiZlpJEfy5ERERERERERERERERLiZGFjZCDmomWjYqNiYiDhZhLRGFiREuIhZiJmI2RiUtQLkREREREREREREREREuUhZeXm5OWiEtEYWJES4yFl4yJiEtQLkREREREREREgV8uRERERKEuoS4=
+
+namespace App\Models;
+
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+
+class User extends Authenticatable
+{
+    /** @use HasFactory<\Database\Factories\UserFactory> */
+    use HasFactory, Notifiable;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var list<string>
+     */
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+    ];
+
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var list<string>
+     */
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'email_verified_at' => 'datetime',
+            'password' => 'hashed',
+        ];
+    }
+}

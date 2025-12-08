@@ -202,7 +202,20 @@
 
               <h3 class="widget-title">Tags</h3>
               <ul>
-                <li><a href="#">App</a></li>
+                @foreach ($tags as $tag)
+                  {{-- take tags from not same id --}}
+                  @if ($tag->post_id != $post->id)
+                      @continue
+                  @endif
+                  {{-- separate tags if there's a comma --}}
+                  @php
+                      $tagNames = explode(',', $tag->post->tags);
+                  @endphp
+                  @foreach ($tagNames as $tagName)
+                      <li><a href="{{ route('tag_post',$tag->post_id) }}">{{ $tagName }}</a></li>    
+                  @endforeach
+                @endforeach
+                
               </ul>
 
             </div><!--/Tags Widget -->
