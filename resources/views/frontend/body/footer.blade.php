@@ -38,11 +38,11 @@
   <script src="{{asset('frontend/assets/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
 
   <!-- Main JS File -->
-  <script src="{{asset('frontend/assets/js/main.js')}}"></script>
+  <script src="{{asset('frontend/assets/js/main.js')}}"></script>  
 
   {{-- for script no content/ 404 page --}}
   <script type="text/javascript">
-      anime({
+    anime({
       targets: '.row svg',
       translateY: 10,
       autoplay: true,
@@ -61,6 +61,14 @@
       scale: [{value: 1}, {value: 1.4}, {value: 1, delay: 250}],
         rotateY: {value: '+=180', delay: 200},
     });
+  </script>
+
+{{-- for tinymce --}}
+  <script src="https://cdn.tiny.cloud/1/lp7lztdggxmkfflaif8kiw64dog4gmfkw66f0lt4z881qohx/tinymce/8/tinymce.min.js" referrerpolicy="origin" crossorigin="anonymous"></script>
+  <script>
+  tinymce.init({
+      selector: '#mytextarea'
+  });
   </script>
 
   {{-- for prevent user to right-click inspect element, then do this --}}

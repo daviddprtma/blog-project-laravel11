@@ -78,6 +78,7 @@
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="{{ route('read_category') }}">Categories</a>
                                     <a class="nav-link" href="{{ route('read_post') }}">Posts</a>
+                                    <a class="nav-link" href="{{ route('read_comment') }}">Comments</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
