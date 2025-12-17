@@ -71,7 +71,7 @@
   </script>
 
   {{-- for prevent user to right-click inspect element, then do this --}}
-  {{-- <script type="text/javascript">
+  <script type="text/javascript">
       document.addEventListener('contextmenu', function(e) {
           e.preventDefault();
       });
@@ -82,7 +82,7 @@
         e.preventDefault();
     }
   };
-  </script> --}}
+  </script>
 
 </body>
 
