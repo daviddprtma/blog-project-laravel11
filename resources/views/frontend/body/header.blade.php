@@ -102,9 +102,7 @@ body
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="{{route('frontend.index')}}">Home<br></a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="{{route('frontend.index')}}">Blog<br></a></li>
           <li><a href="{{ route('login') }}">Login</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>

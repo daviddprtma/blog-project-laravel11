@@ -12,7 +12,7 @@
                     </div>
 
                     <div class="card-body">
-                        <table class="table">
+                        <table id="datatablesSimple">
                             <thead>
                                 <tr>
                                     <th scope="col">Image</th>

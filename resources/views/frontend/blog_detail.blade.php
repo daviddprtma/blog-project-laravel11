@@ -99,9 +99,7 @@
                 <div class="d-flex">
                   {{-- <div class="comment-img"><img src="assets/img/blog/comments-1.jpg" alt=""></div> --}}
                   <div>
-                    <h5><a href="">{{$c->name}}</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
-                    <time datetime="{{Carbon\Carbon::parse($c->created_at)->diffForHumans()}}">{{Carbon\Carbon::parse($c->created_at)->diffForHumans()}}</time>
-                    <p>
+                    <h5><a href="#">{{$c->name}}</a></h5>
                       {{-- hide the html tags --}}
                       {{ strip_tags($c->comment) }}
                     </p>
@@ -109,7 +107,7 @@
                 </div>
                 @endforeach
               </div><!-- End comment #1 -->
-            </div>
+          </div>    
 
           </section><!-- /Blog Comments Section -->
 
@@ -124,10 +122,10 @@
                 <input type="hidden" name="post_id" value="{{ $post->id }}">
                 <div class="row">
                   <div class="col-md-6 form-group">
-                    <input name="name" type="text" class="form-control" placeholder="Your Name*">
+                    <input name="name" type="text" class="form-control" placeholder="Your Name*" required>
                   </div>
                   <div class="col-md-6 form-group">
-                    <input name="email" type="text" class="form-control" placeholder="Your Email*">
+                    <input name="email" type="text" class="form-control" placeholder="Your Email*" required>
                   </div>
                 </div>
                 <div class="row">
@@ -232,4 +230,5 @@
 
   </main>
 @endsection
+
 

@@ -11,10 +11,9 @@
         </div>
 
         <div class="social-links order-first order-lg-last mb-3 mb-lg-0">
-          <a href=""><i class="bi bi-twitter-x"></i></a>
-          <a href=""><i class="bi bi-facebook"></i></a>
-          <a href=""><i class="bi bi-instagram"></i></a>
-          <a href=""><i class="bi bi-linkedin"></i></a>
+          <a href="https://x.com/daviddprtma_"><i class="bi bi-twitter-x"></i></a>
+          <a href="https://instagram.com/daviddprtma"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/daviddprtma/"><i class="bi bi-linkedin"></i></a>
         </div>
 
       </div>
